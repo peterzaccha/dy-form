@@ -1,0 +1,34 @@
+{
+  "name": "peterzaccha/dy-form",
+  "description": "Dynamic Form Generator",
+  "license": "MIT",
+  "authors": [
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php" : "^7.2",
+    "illuminate/support": "5.8.*",
+    "spatie/laravel-blade-x": "^2.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Peterzaccha\\DyForm\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Peterzaccha\\DyForm\\Test\\": "tests"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Peterzaccha\\DyForm\\DyFormServiceProvider"
+      ]
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit",
+    "test:windows": "vendor\\bin\\phpunit"
+  }
+}
