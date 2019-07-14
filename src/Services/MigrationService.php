@@ -23,11 +23,27 @@ class MigrationService
         {
             $fun = $column->database_type;
             if ($column->length){
-                $table->$fun($column->name,$column->length);
+                $table->$fun($column->name,$column->length)->nullable();
             }else{
-                $table->$fun($column->name);
+                $table->$fun($column->name)->nullable();
             }
         });
+    }
+
+    public static function dropColumn(DyColumn $column)
+    {
+        Schema::table($column->table_name, function(Blueprint $table) use ($column)
+        {
+            $table->dropColumn([$column->name]);
+        });
+
+        if (static::columnsInTable($column->table_name)->count() <= TableService::$defaultColumnsNumber ){
+            Schema::dropIfExists($column->table_name);
+        }
+    }
+
+    public static function columnsInTable($tableName){
+        return  collect(Schema::getColumnListing($tableName));
     }
 
 }

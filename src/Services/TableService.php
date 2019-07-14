@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Schema;
 class TableService
 {
     public static $tableNameSchema = 'dytable_%';
+    public static $defaultColumnsNumber = 5;
 
     public static function getNextTableName()
     {
@@ -20,8 +21,8 @@ class TableService
             MigrationService::startTable($tableName);
             return $tableName;
         }else{
-            $columns = collect(Schema::getColumnListing($tables->last()));
-            if ($columns->count() >= config('dy-form.maxColumns') + 4){
+            $columns = MigrationService::columnsInTable($tables->last());
+            if ($columns->count() >= config('dy-form.maxColumns') + static::$defaultColumnsNumber){
                 $tableName = static::generateNewTableName($tables->last());
                 MigrationService::startTable($tableName);
                 return $tableName;

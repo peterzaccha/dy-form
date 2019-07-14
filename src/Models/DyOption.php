@@ -14,4 +14,10 @@ class DyOption extends Model
         return $this->belongsToMany(DyOption::class,
             'options_columns','option_id', 'column_id');
     }
+
+    public function nextColumns()
+    {
+        return $this->belongsToMany(DyOption::class,
+            'next_column','option_id', 'next_column');
+    }
 }

@@ -17,8 +17,6 @@ class CreateDyOptionsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('hint')->nullable();
-            $table->unsignedBigInteger('next_column')->nullable();
-            $table->foreign('next_column')->on('dy_columns')->references('id')->onDelete('set null');
             $table->timestamps();
         });
     }
