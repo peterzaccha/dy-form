@@ -2,10 +2,9 @@
 
 namespace Peterzaccha\DyForm;
 
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\DB;
 use Peterzaccha\DyForm\Models\DyColumn;
 use Peterzaccha\DyForm\Models\DyOption;
+use Peterzaccha\DyForm\Services\FormService;
 use Peterzaccha\DyForm\Services\MigrationService;
 use Peterzaccha\DyForm\Services\TableService;
 
@@ -21,6 +20,11 @@ class DyForm
     public function addOption(DyColumn $column,DyOption $option){
         $column->options()->attach($option->id);
         return $column->options;
+    }
+
+    public function addNextColumn(DyOption $option,DyColumn $column){
+        $option->nextColumns()->attach($column->id);
+        return $option->nextColumns;
     }
 
     public function createColumn(array $fillable){
@@ -49,6 +53,11 @@ class DyForm
     public function dropColumn(DyColumn $column){
         MigrationService::dropColumn($column);
         return $column->delete();
+    }
+
+    public function render(\Peterzaccha\DyForm\Models\DyForm $form){
+        $formService = new FormService($form);
+        return $formService->render();
     }
 
 }

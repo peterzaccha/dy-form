@@ -45,7 +45,7 @@ class TableService
      * @return Collection
      */
     public static function getTablesCollection(){
-        $database = Config::get('database.connections.my$prevNumbersql.database');
+        $database = Config::get('database.connections.mysql.database');
         $tables = DB::select("SHOW TABLES Like '".static::$tableNameSchema."'");
         $combine = "Tables_in_".$database .' ('.static::$tableNameSchema.')';
         $collection = new Collection();

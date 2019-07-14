@@ -2,7 +2,9 @@
 
 namespace Peterzaccha\DyForm;
 
+use Exception;
 use Illuminate\Support\ServiceProvider;
+use Spatie\BladeX\Facades\BladeX;
 
 class DyFormServiceProvider extends ServiceProvider
 {
@@ -29,7 +31,12 @@ class DyFormServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../resources/views' => $this->app->resourcePath('views/vendor/dyform'),
         ], 'views');
-    //    $this->loadRoutesFrom(__DIR__.'/routes.php');
+
+        try{
+            BladeX::component('vendor.dyform.dycomponents.*');
+        }catch (Exception $e){}
+
+        //    $this->loadRoutesFrom(__DIR__.'/routes.php');
      //   $this->loadMigrationsFrom(__DIR__ . '/../database/migrations/');
     }
 

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static create(array $array)
  * @method static createColumn(array $array)
  * @method static addColumn($form, $second)
+ * @method static render($form)
  */
 class Dy extends Facade
 {
