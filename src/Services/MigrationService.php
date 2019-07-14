@@ -48,4 +48,8 @@ class MigrationService
         return  collect(Schema::getColumnListing($tableName));
     }
 
+    public static function columnExist($tableName,$column){
+        return Schema::hasColumn($tableName, $column);
+    }
+
 }

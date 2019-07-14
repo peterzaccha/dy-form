@@ -12,4 +12,11 @@ class DyForm extends Model
         return $this->belongsToMany(DyColumn::class,
             'forms_columns',  'form_id','column_id');
     }
+
+    public function getTables()
+    {
+        $columns = $this->columns;
+        $tables = $columns->pluck('table_name')->unique();
+        return $tables;
+    }
 }

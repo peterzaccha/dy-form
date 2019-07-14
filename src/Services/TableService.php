@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Schema;
 class TableService
 {
     public static $tableNameSchema = 'dytable_%';
-    public static $defaultColumnsNumber = 5;
+    public static $defaultColumnsNumber = 4;
 
     /**
      * get the valid table name to migrate the next column

@@ -2,10 +2,12 @@
 
 namespace Peterzaccha\DyForm;
 
+use Illuminate\Http\Request;
 use Peterzaccha\DyForm\Models\DyColumn;
 use Peterzaccha\DyForm\Models\DyOption;
 use Peterzaccha\DyForm\Services\FormService;
 use Peterzaccha\DyForm\Services\MigrationService;
+use Peterzaccha\DyForm\Services\SubmitService;
 use Peterzaccha\DyForm\Services\TableService;
 
 class DyForm
@@ -58,6 +60,11 @@ class DyForm
     public function render(\Peterzaccha\DyForm\Models\DyForm $form){
         $formService = new FormService($form);
         return $formService->render();
+    }
+
+    public function submit($user,\Peterzaccha\DyForm\Models\DyForm $form,$data){
+        $formService = new SubmitService($user,$form,$data);
+        return $formService->submit();
     }
 
 }

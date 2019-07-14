@@ -24,4 +24,8 @@ class TextField implements Field
             'required'=>$this->column->required,
         ]);
     }
+
+    public function mapInput($input){
+        return 'peter is awesome '.$input;
+    }
 }
