@@ -15,7 +15,10 @@ class FormService
 
     public function render(){
         $form = $this->dyform;
-        return view('vendor.dyform.dyrender.form',compact($form));
+        return view('vendor.dyform.dyrender.form')->with([
+            'form'=>$form,
+            'action'=>'dd'
+        ]);
     }
 
 }

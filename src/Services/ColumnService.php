@@ -15,7 +15,7 @@ class ColumnService
 
     public function render(){
         $fieldFactory = new FieldFactory();
-        $field = $fieldFactory->getField($this->column->render_type);
+        $field = $fieldFactory->getField($this->column);
         return $field->render();
     }
 }

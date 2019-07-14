@@ -3,6 +3,8 @@
 namespace Peterzaccha\DyForm;
 
 use Exception;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Spatie\BladeX\Facades\BladeX;
 
@@ -36,6 +38,9 @@ class DyFormServiceProvider extends ServiceProvider
             BladeX::component('vendor.dyform.dycomponents.*');
         }catch (Exception $e){}
 
+        View::macro('dyComponent',function ($component){
+            return view('vendor.dyform.dycomponents.'.$component);
+        });
         //    $this->loadRoutesFrom(__DIR__.'/routes.php');
      //   $this->loadMigrationsFrom(__DIR__ . '/../database/migrations/');
     }

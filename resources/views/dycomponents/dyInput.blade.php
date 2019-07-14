@@ -1,5 +1,4 @@
-<input class="form-control {{$class?? ''}} name="{{$name ?? ''}}"
-       @if (isset($type) && $type=='file')
-       @endif
+<input class="form-control {{$class?? ''}}" name="{{$name ?? ''}}"
+       {{isset($required) && $required ? 'required' : ''}}
        value="{{$value ?? ''}}" type="{{$type ?? "text"}}" placeholder="{{$placeholder ?? ''}}">
 
