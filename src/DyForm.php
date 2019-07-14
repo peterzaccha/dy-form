@@ -48,6 +48,7 @@ class DyForm
 
     public function dropColumn(DyColumn $column){
         MigrationService::dropColumn($column);
+        return $column->delete();
     }
 
 }

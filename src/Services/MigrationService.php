@@ -40,6 +40,8 @@ class MigrationService
         if (static::columnsInTable($column->table_name)->count() <= TableService::$defaultColumnsNumber ){
             Schema::dropIfExists($column->table_name);
         }
+
+        return true;
     }
 
     public static function columnsInTable($tableName){
