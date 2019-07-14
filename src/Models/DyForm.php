@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @method static find(\Illuminate\Routing\Route|object|string $route)
+ * @method static findOrFail($form)
  */
 class DyForm extends Model
 {

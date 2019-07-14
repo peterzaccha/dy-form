@@ -41,8 +41,7 @@ class DyFormServiceProvider extends ServiceProvider
         View::macro('dyComponent',function ($component){
             return view('vendor.dyform.dycomponents.'.$component);
         });
-        //    $this->loadRoutesFrom(__DIR__.'/routes.php');
-     //   $this->loadMigrationsFrom(__DIR__ . '/../database/migrations/');
+        $this->loadRoutesFrom(__DIR__.'/routes.php');
     }
 
 

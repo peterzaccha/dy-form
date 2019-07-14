@@ -27,8 +27,11 @@ class SubmitService
         try{
             $data= collect($this->data)->map(function ($value,$column){
                 $columnModel = $this->form->columns()->where('name',$column)->first();
-                $field = (new FieldFactory())->getField($columnModel);
-                return method_exists($field,'mapInput') ? $field->mapInput($value) : $value;
+                if ($columnModel){
+                    $field = (new FieldFactory())->getField($columnModel);
+                    return method_exists($field,'mapInput') ? $field->mapInput($value) : $value;
+                }
+                return $value;
             });
             $data['user_id'] = $this->user->id;
             $this->form->getTables()->each(function ($table) use ($data){
