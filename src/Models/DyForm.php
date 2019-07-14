@@ -4,6 +4,9 @@ namespace Peterzaccha\DyForm\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @method static find(\Illuminate\Routing\Route|object|string $route)
+ */
 class DyForm extends Model
 {
     protected $fillable = ['name'];
