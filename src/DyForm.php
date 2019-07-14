@@ -9,6 +9,7 @@ use Peterzaccha\DyForm\Services\FormService;
 use Peterzaccha\DyForm\Services\MigrationService;
 use Peterzaccha\DyForm\Services\SubmitService;
 use Peterzaccha\DyForm\Services\TableService;
+use Peterzaccha\DyForm\Traits\CanSubmit;
 
 class DyForm
 {
@@ -57,8 +58,11 @@ class DyForm
         return $column->delete();
     }
 
-    public function render(\Peterzaccha\DyForm\Models\DyForm $form){
+    public function render(\Peterzaccha\DyForm\Models\DyForm $form , $user = null){
         $formService = new FormService($form);
+        if ($user){
+            $formService->setUser($user);
+        }
         return $formService->render();
     }
 

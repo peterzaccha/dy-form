@@ -27,4 +27,9 @@ class FileField implements Field
             'required'=>$this->column->required,
         ]);
     }
+
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
 }

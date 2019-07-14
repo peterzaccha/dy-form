@@ -8,4 +8,5 @@ interface Field
 {
     public function __construct(DyColumn $column);
     public function render();
+    public function setValue($value);
 }

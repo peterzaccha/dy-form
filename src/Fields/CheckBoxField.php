@@ -18,4 +18,9 @@ class CheckBoxField implements Field
     {
         // TODO: Implement render() method.
     }
+
+    public function setValue($value)
+    {
+        // TODO: Implement setValue() method.
+    }
 }

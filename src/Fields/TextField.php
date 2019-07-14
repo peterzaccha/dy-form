@@ -9,6 +9,7 @@ use Peterzaccha\DyForm\Models\DyColumn;
 class TextField implements Field
 {
     public $blade = 'dyInput';
+    public $value = null;
     public $column;
     public function __construct(DyColumn $dyColumn)
     {
@@ -22,10 +23,16 @@ class TextField implements Field
             'type'=>'text',
             'label'=>$this->column->label,
             'required'=>$this->column->required,
+            'value'=>$this->value
         ]);
     }
 
     public function mapInput($input){
-        return 'peter is awesome '.$input;
+        return $input;
+    }
+
+    public function setValue($value)
+    {
+        $this->value = $value;
     }
 }

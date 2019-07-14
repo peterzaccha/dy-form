@@ -7,18 +7,29 @@ use Peterzaccha\DyForm\Models\DyForm;
 
 class FormService
 {
-    private $dyform;
-    public function __construct(DyForm $dyForm)
+    private $form;
+    private $user = null;
+
+    public function __construct(DyForm $form)
     {
-        $this->dyform = $dyForm;
+        $this->form = $form;
     }
 
-    public function render(){
-        $form = $this->dyform;
-        return view('vendor.dyform.dyrender.form')->with([
-            'form'=>$form,
-            'action'=>'dd'
-        ]);
+    public function render()
+    {
+
+        $compact = [
+            'form' => $this->form,
+            'action' => 'dd',
+            'user'=>$this->user
+        ];
+        //$this->form->columns->each(function ());
+        return view('vendor.dyform.dyrender.form')->with($compact);
+    }
+
+    public function setUser($user)
+    {
+        $this->user = $user;
     }
 
 }
