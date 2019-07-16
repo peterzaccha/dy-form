@@ -2,12 +2,11 @@
 
 namespace Peterzaccha\DyForm\Test;
 
-use Peterzaccha\DyForm\DyFormServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
+use Peterzaccha\DyForm\DyFormServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
-
     /**
      * Setup the test environment.
      */
@@ -17,9 +16,10 @@ abstract class TestCase extends Orchestra
     }
 
     /**
-     * add the package provider
+     * add the package provider.
      *
      * @param $app
+     *
      * @return array
      */
     protected function getPackageProviders($app)
@@ -30,7 +30,8 @@ abstract class TestCase extends Orchestra
     /**
      * Define environment setup.
      *
-     * @param  \Illuminate\Foundation\Application  $app
+     * @param \Illuminate\Foundation\Application $app
+     *
      * @return void
      */
     protected function getEnvironmentSetUp($app)
