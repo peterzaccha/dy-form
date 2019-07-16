@@ -7,6 +7,7 @@ namespace Peterzaccha\DyForm\Traits;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Peterzaccha\DyForm\Models\DyColumn;
+use Peterzaccha\DyForm\Models\DyForm;
 
 trait CanSubmit
 {
@@ -17,5 +18,13 @@ trait CanSubmit
         }catch (Exception $exception){
             return null;
         }
+    }
+
+    public function getFormValues(DyForm $form){
+        $values = [];
+        foreach ($form->columns as $column){
+            $values[$column->name] = $this->getColumnValue($column);
+        }
+        return collect($values);
     }
 }
