@@ -1,4 +1,5 @@
 <?php
+
 namespace Peterzaccha\DyForm\Facades;
 
 use Illuminate\Support\Facades\Facade;
@@ -14,7 +15,6 @@ use Illuminate\Support\Facades\Facade;
  */
 class Dy extends Facade
 {
-
     protected static function getFacadeAccessor()
     {
         return 'dy';

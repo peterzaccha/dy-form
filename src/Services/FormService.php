@@ -2,7 +2,6 @@
 
 namespace Peterzaccha\DyForm\Services;
 
-
 use Peterzaccha\DyForm\Models\DyForm;
 
 class FormService
@@ -17,11 +16,10 @@ class FormService
 
     public function render()
     {
-
         $compact = [
-            'form' => $this->form,
+            'form'   => $this->form,
             'action' => 'dd',
-            'user'=>$this->user
+            'user'   => $this->user,
         ];
         //$this->form->columns->each(function ());
         return view('vendor.dyform.dyrender.form')->with($compact);
@@ -31,5 +29,4 @@ class FormService
     {
         $this->user = $user;
     }
-
 }

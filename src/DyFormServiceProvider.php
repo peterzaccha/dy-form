@@ -3,7 +3,6 @@
 namespace Peterzaccha\DyForm;
 
 use Exception;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Spatie\BladeX\Facades\BladeX;
@@ -28,22 +27,22 @@ class DyFormServiceProvider extends ServiceProvider
             __DIR__.'/../config/dy-form.php' => config_path('dy-form.php'),
         ], 'config');
         $this->publishes([
-            __DIR__.'/../database/migrations/' => base_path('/database/migrations')
+            __DIR__.'/../database/migrations/' => base_path('/database/migrations'),
         ], 'migrations');
         $this->publishes([
             __DIR__.'/../resources/views' => $this->app->resourcePath('views/vendor/dyform'),
         ], 'views');
 
-        try{
+        try {
             BladeX::component('vendor.dyform.dycomponents.*');
-        }catch (Exception $e){}
+        } catch (Exception $e) {
+        }
 
-        View::macro('dyComponent',function ($component){
+        View::macro('dyComponent', function ($component) {
             return view('vendor.dyform.dycomponents.'.$component);
         });
         $this->loadRoutesFrom(__DIR__.'/routes.php');
     }
-
 
     /**
      * Register the service provider.
@@ -52,7 +51,7 @@ class DyFormServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('dy',function (){
+        $this->app->singleton('dy', function () {
             return new DyForm();
         });
     }

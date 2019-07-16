@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateFormsColumnsTable extends Migration
 {
@@ -20,7 +20,8 @@ class CreateFormsColumnsTable extends Migration
             $table->unsignedBigInteger('form_id');
 
             $table->foreign('column_id')->on('dy_columns')->references('id')->onDelete('cascade');
-            $table->foreign('form_id')->on('dy_forms')->references('id')->onDelete('cascade');        });
+            $table->foreign('form_id')->on('dy_forms')->references('id')->onDelete('cascade');
+        });
     }
 
     /**

@@ -10,7 +10,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class DyColumn extends Model
 {
-    protected $fillable = ['name','label','render_type','rules','default','length','hint','table_name','database_type'];
+    protected $fillable = ['name', 'label', 'render_type', 'rules', 'default', 'length', 'hint', 'table_name', 'database_type'];
+
     public function options()
     {
         return $this->belongsToMany(DyOption::class,
