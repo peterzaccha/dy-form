@@ -70,7 +70,7 @@ use Peterzaccha\DyForm\Traits\CanSubmit;
 
 class User extends Authenticatable
 {
-    use CanSubmit;no
+    use CanSubmit;
 }
 ```
 Now you can do
