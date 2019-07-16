@@ -13,6 +13,7 @@ class Field implements \Peterzaccha\DyForm\Interfaces\Field
     public $column;
     public $type = 'text';
     public $value = null;
+    public $multiple = false;
 
     public function __construct(DyColumn $column)
     {
@@ -21,18 +22,26 @@ class Field implements \Peterzaccha\DyForm\Interfaces\Field
 
     public function render()
     {
-        return View::dyComponent($this->blade)->with([
-            'name'=>$this->column->name,
+        $compact = [
+            'name'=>$this->getName(),
             'type'=>$this->type,
             'label'=>$this->column->label,
             'required'=>$this->column->required,
             'value'=>$this->value,
-            'options'=> $this->column->options
-        ]);
+            'options'=> $this->column->options,
+        ];
+
+        $this->multiple ? $compact['multiple']=true : '';
+
+        return View::dyComponent($this->blade)->with($compact);
     }
 
     public function setValue($value)
     {
         $this->value = $value;
+    }
+
+    public function getName(){
+        return $this->column->name;
     }
 }

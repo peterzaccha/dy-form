@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Peterzaccha\DyForm\Fields\FileField;
 use Peterzaccha\DyForm\Fields\SelectField;
+use Peterzaccha\DyForm\Fields\SelectMultipleField;
 use Peterzaccha\DyForm\Fields\TextField;
 use Peterzaccha\DyForm\Models\DyForm;
 use Peterzaccha\DyForm\Requests\DyRequest;
@@ -16,6 +17,7 @@ return [
         ['type'=>'text','class'=>TextField::class],
         ['type'=>'file','class'=>FileField::class],
         ['type'=>'select','class'=> SelectField::class],
+        ['type'=>'selectMultiple','class'=> SelectMultipleField::class],
     ],
     'middleware'=>'auth',
     'userInstance'=>function(DyRequest $request, DyForm $form){
