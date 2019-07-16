@@ -5,10 +5,8 @@ namespace Peterzaccha\DyForm\Fields;
 
 
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 use Peterzaccha\DyForm\Abstracts\Field;
-use Peterzaccha\DyForm\Models\DyColumn;
 
 class FileField extends Field
 {

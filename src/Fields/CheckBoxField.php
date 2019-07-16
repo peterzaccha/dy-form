@@ -4,23 +4,11 @@
 namespace Peterzaccha\DyForm\Fields;
 
 
-use Peterzaccha\DyForm\Interfaces\Field;
-use Peterzaccha\DyForm\Models\DyColumn;
+use Peterzaccha\DyForm\Abstracts\MultipleField;
 
-class CheckBoxField implements Field
+class CheckBoxField extends MultipleField
 {
-
-    public function __construct(DyColumn $column)
-    {
-    }
-
-    public function render()
-    {
-        // TODO: Implement render() method.
-    }
-
-    public function setValue($value)
-    {
-        // TODO: Implement setValue() method.
-    }
+    public $blade = 'dyCheck';
+    public $multiple = true;
+    public $type = 'checkbox';
 }

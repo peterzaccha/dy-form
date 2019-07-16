@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
+use Peterzaccha\DyForm\Fields\CheckBoxField;
 use Peterzaccha\DyForm\Fields\FileField;
+use Peterzaccha\DyForm\Fields\RadioButtonField;
 use Peterzaccha\DyForm\Fields\SelectField;
 use Peterzaccha\DyForm\Fields\SelectMultipleField;
 use Peterzaccha\DyForm\Fields\TextField;
@@ -18,6 +20,8 @@ return [
         ['type'=>'file','class'=>FileField::class],
         ['type'=>'select','class'=> SelectField::class],
         ['type'=>'selectMultiple','class'=> SelectMultipleField::class],
+        ['type'=>'checkbox','class'=> CheckBoxField::class],
+        ['type'=>'radioButton','class'=> RadioButtonField::class],
     ],
     'middleware'=>'auth',
     'userInstance'=>function(DyRequest $request, DyForm $form){

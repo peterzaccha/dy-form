@@ -2,12 +2,12 @@
 <div class="col-md-12 mb-3  check-wrapper">
     <label class="bold">{{$label}}</label>
     <div class="clearfix"></div>
-    @foreach($options as $v=>$label)
+    @foreach($options as $option)
         <label class="radio-inline">
             <input class="check-condition"
-                   {{ isset($value) && in_array($v,$value) ? 'checked' : '' }}
-                   value="{{$v}}" type="{{$type ?? 'checkbox'}}"
-                   name="{{$name ?? ''}}">{{$label}}
+                   {{ isset($value) && in_array($option->value,$value) ? 'checked' : '' }}
+                   value="{{$option->value}}" type="{{$type ?? 'checkbox'}}"
+                   name="{{$name ?? ''}}">{{$option->name}}
         </label>
         <div class="clearfix"></div>
     @endforeach

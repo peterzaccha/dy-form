@@ -4,23 +4,11 @@
 namespace Peterzaccha\DyForm\Fields;
 
 
-use Peterzaccha\DyForm\Interfaces\Field;
+use Peterzaccha\DyForm\Abstracts\Field;
 use Peterzaccha\DyForm\Models\DyColumn;
 
-class RadioButtonField implements Field
+class RadioButtonField extends Field
 {
-
-    public function __construct(DyColumn $column)
-    {
-    }
-
-    public function render()
-    {
-        // TODO: Implement render() method.
-    }
-
-    public function setValue($value)
-    {
-        // TODO: Implement setValue() method.
-    }
+    public $blade = 'dyCheck';
+    public $type = 'radio';
 }

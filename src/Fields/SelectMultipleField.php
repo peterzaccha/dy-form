@@ -4,28 +4,9 @@
 namespace Peterzaccha\DyForm\Fields;
 
 
-use Peterzaccha\DyForm\Abstracts\Field;
+use Peterzaccha\DyForm\Abstracts\MultipleField;
 
-class SelectMultipleField extends Field
+class SelectMultipleField extends MultipleField
 {
 
-    public $column;
-    public $blade = 'dySelect';
-    public $value;
-    public $multiple = true;
-
-    public function setValue($value)
-    {
-        $this->value = explode(',', $value);
-    }
-
-    public function getName()
-    {
-        return $this->column->name.'[]';
-    }
-
-    public function mapInput(array $input)
-    {
-        return implode(',', $input);
-    }
 }
