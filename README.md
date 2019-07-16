@@ -25,6 +25,7 @@ running :
 
 ```bash
 php artisan vendor:publish --provider="peterzaccha/dy-form"
+php artisan migrate
 ```
 
 Usage
