@@ -13,7 +13,7 @@ class DyColumn extends Model
     protected $fillable = ['name','label','render_type','rules','default','length','hint','table_name'];
     public function options()
     {
-        return $this->belongsToMany(DyColumn::class,
+        return $this->belongsToMany(DyOption::class,
             'options_columns', 'column_id', 'option_id');
     }
 }

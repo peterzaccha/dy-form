@@ -15,6 +15,7 @@ class CreateDyOptionsTable extends Migration
     {
         Schema::create('dy_options', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('value')->unique();
             $table->string('name');
             $table->string('hint')->nullable();
             $table->timestamps();

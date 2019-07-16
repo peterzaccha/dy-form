@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class DyOption extends Model
 {
 
-    protected $fillable = ['name','hint'];
+    protected $fillable = ['name','hint','value'];
 
     public function columns()
     {

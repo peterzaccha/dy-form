@@ -4,32 +4,22 @@
 namespace Peterzaccha\DyForm\Fields;
 
 
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\View;
-use Peterzaccha\DyForm\Interfaces\Field;
+use Illuminate\Support\Str;
+use Peterzaccha\DyForm\Abstracts\Field;
 use Peterzaccha\DyForm\Models\DyColumn;
 
-class FileField implements Field
+class FileField extends Field
 {
 
     public $blade = 'dyInput';
+    public $type = 'file';
     public $column;
-    public function __construct(DyColumn $dyColumn)
-    {
-        $this->column = $dyColumn;
+
+    public function mapInput(UploadedFile $input){
+        $path = config('dy-form.filesPath')($this->column->name);
+        return $input->storeAs($path,Str::random(30).time().'.'.$input->clientExtension());
     }
 
-    public function render()
-    {
-        return View::dyComponent($this->blade)->with([
-            'name'=>$this->column->name,
-            'type'=>'file',
-            'label'=>$this->column->label,
-            'required'=>$this->column->required,
-        ]);
-    }
-
-    public function setValue($value)
-    {
-        $this->value = $value;
-    }
 }

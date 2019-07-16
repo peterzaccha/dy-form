@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Facade;
  * @method static addColumn($form, $second)
  * @method static render($form)
  * @method static submit($find, $find1,array $data)
+ * @method static addOption($first, $createOption)
+ * @method static createOption(array $array)
  */
 class Dy extends Facade
 {

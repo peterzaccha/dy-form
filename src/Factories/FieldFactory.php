@@ -12,7 +12,7 @@ class FieldFactory
 
     public function getField(DyColumn $column)
     {
-        $class = $this->correspondingFields()->firstWhere('type', ctype_lower($column->render_type))['class'];
+        $class = $this->correspondingFields()->where('type', $column->render_type)->first()['class'];
         return new $class($column);
     }
 

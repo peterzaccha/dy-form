@@ -4,23 +4,9 @@
 namespace Peterzaccha\DyForm\Fields;
 
 
-use Peterzaccha\DyForm\Interfaces\Field;
-use Peterzaccha\DyForm\Models\DyColumn;
+use Peterzaccha\DyForm\Abstracts\Field;
 
-class SelectField implements Field
+class SelectField extends Field
 {
-
-    public function __construct(DyColumn $column)
-    {
-    }
-
-    public function render()
-    {
-        // TODO: Implement render() method.
-    }
-
-    public function setValue($value)
-    {
-        // TODO: Implement setValue() method.
-    }
+    public $blade = 'dySelect';
 }

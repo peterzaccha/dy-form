@@ -40,7 +40,6 @@ class CreateDyColumnsTable extends Migration
             $table->string('table_name');
 
             $table->boolean('migrated')->default(0);
-            $table->boolean('options')->default(0);
             $table->boolean('required')->default(0);
             $table->timestamps();
         });
