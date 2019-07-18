@@ -23,35 +23,35 @@ use Peterzaccha\DyForm\Models\DyForm;
 use Peterzaccha\DyForm\Requests\DyRequest;
 
 return [
-    'columnModel'=>'Peterzaccha\DyForm\Models\DyColumn',
-    'optionModel'=>'Peterzaccha\DyForm\Models\DyOption',
-    'formModel'=>'Peterzaccha\DyForm\Models\DyForm',
+    'columnModel'=> 'Peterzaccha\DyForm\Models\DyColumn',
+    'optionModel'=> 'Peterzaccha\DyForm\Models\DyOption',
+    'formModel'  => 'Peterzaccha\DyForm\Models\DyForm',
     'maxColumns' => 10,
-    'factory'=>[
-        ['type'=>'text','class'=>TextField::class],
-        ['type'=>'file','class'=>FileField::class],
-        ['type'=>'select','class'=> SelectField::class],
-        ['type'=>'selectMultiple','class'=> SelectMultipleField::class],
-        ['type'=>'checkbox','class'=> CheckBoxField::class],
-        ['type'=>'radioButton','class'=> RadioButtonField::class],
-        ['type'=>'textArea','class'=> TextAreaField::class],
-        ['type'=>'number','class'=> NumberField::class],
-        ['type'=>'color','class'=> ColorField::class],
-        ['type'=>'date','class'=> DateField::class],
-        ['type'=>'email','class'=> EmailField::class],
-        ['type'=>'month','class'=> MonthField::class],
-        ['type'=>'multipleFile','class'=> MultipleFileField::class],
-        ['type'=>'password','class'=> PasswordField::class],
-        ['type'=>'range','class'=> RangeField::class],
-        ['type'=>'time','class'=> TimeField::class],
-        ['type'=>'url','class'=> UrlField::class],
-        ['type'=>'week','class'=> WeekField::class],
+    'factory'    => [
+        ['type'=>'text', 'class'=>TextField::class],
+        ['type'=> 'file', 'class'=>FileField::class],
+        ['type'=> 'select', 'class'=> SelectField::class],
+        ['type'=> 'selectMultiple', 'class'=> SelectMultipleField::class],
+        ['type'=> 'checkbox', 'class'=> CheckBoxField::class],
+        ['type'=> 'radioButton', 'class'=> RadioButtonField::class],
+        ['type'=> 'textArea', 'class'=> TextAreaField::class],
+        ['type'=> 'number', 'class'=> NumberField::class],
+        ['type'=> 'color', 'class'=> ColorField::class],
+        ['type'=> 'date', 'class'=> DateField::class],
+        ['type'=> 'email', 'class'=> EmailField::class],
+        ['type'=> 'month', 'class'=> MonthField::class],
+        ['type'=> 'multipleFile', 'class'=> MultipleFileField::class],
+        ['type'=> 'password', 'class'=> PasswordField::class],
+        ['type'=> 'range', 'class'=> RangeField::class],
+        ['type'=> 'time', 'class'=> TimeField::class],
+        ['type'=> 'url', 'class'=> UrlField::class],
+        ['type'=> 'week', 'class'=> WeekField::class],
     ],
-    'middleware'=>'auth',
-    'userInstance'=>function(DyRequest $request, DyForm $form){
+    'middleware'  => 'auth',
+    'userInstance'=> function (DyRequest $request, DyForm $form) {
         return Auth::user();
     },
-    'filesPath'=>function($columnName){
+    'filesPath'=> function ($columnName) {
         return $columnName;
-    }
+    },
 ];

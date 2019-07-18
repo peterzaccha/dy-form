@@ -1,12 +1,9 @@
 <?php
 
-
 namespace Peterzaccha\DyForm\Abstracts;
-
 
 class MultipleField extends Field
 {
-
     public $blade = 'dySelect';
     public $multiple = true;
 

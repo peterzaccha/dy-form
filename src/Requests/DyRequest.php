@@ -1,6 +1,7 @@
 <?php
 
 namespace Peterzaccha\DyForm\Requests;
+
 use Illuminate\Foundation\Http\FormRequest;
 use Peterzaccha\DyForm\Models\DyForm;
 
@@ -24,10 +25,11 @@ class DyRequest extends FormRequest
     public function rules()
     {
         $rules = [];
-        $form =  DyForm::find($this->route('form'));
-        foreach ($form->columns as $column){
-            $rules[$column->name] = $column->rules . $column->required ? '|required' : '';
+        $form = DyForm::find($this->route('form'));
+        foreach ($form->columns as $column) {
+            $rules[$column->name] = $column->rules.$column->required ? '|required' : '';
         }
+
         return $rules;
     }
 }
