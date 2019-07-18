@@ -47,7 +47,7 @@ return [
         ['type'=> 'url', 'class'=> UrlField::class],
         ['type'=> 'week', 'class'=> WeekField::class],
     ],
-    'middleware'  => 'auth',
+    'middleware'  => ['web','auth'],
     'userInstance'=> function (DyRequest $request, DyForm $form) {
         return Auth::user();
     },

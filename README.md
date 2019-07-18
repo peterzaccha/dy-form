@@ -28,6 +28,10 @@ php artisan vendor:publish --provider="peterzaccha/dy-form"
 php artisan migrate
 ```
 
+## Warning
+
+⚠️ This documentation ins INCOMPLETE! Please use on your own, or wait until it's ready! ⚠️
+
 Usage
 ---
 
