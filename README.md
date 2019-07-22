@@ -124,7 +124,7 @@ Render
 
 You can use the component dy-form
 ```html
-<dy-form :form="$formId" :user="$userModelObject">
+<dy-form :id="$formId" :user="$userModelObject">
     <input type="submit">
 </dy-form>
 ```
