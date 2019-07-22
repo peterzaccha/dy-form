@@ -24,7 +24,7 @@ You can publish the views ,migrations and config by
 running : 
 
 ```bash
-php artisan vendor:publish --provider="peterzaccha/dy-form"
+php artisan vendor:publish --provider="Peterzaccha\DyForm\DyFormServiceProvider"
 php artisan migrate
 ```
 
