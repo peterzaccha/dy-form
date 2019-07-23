@@ -10,7 +10,8 @@ use Peterzaccha\DyForm\Requests\DyRequest;
 class ConfigService
 {
     public static function getUserInstance(DyRequest $request, DyForm $form){
-        return \App\User::find(1);
+        $userModel = '\\'.config('dy-form.userModel');
+        return $userModel::find(1);
     }
 
     public static function getFilePath($columnName){

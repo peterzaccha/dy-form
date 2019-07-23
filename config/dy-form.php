@@ -26,6 +26,7 @@ return [
     'columnModel'=> 'Peterzaccha\DyForm\Models\DyColumn',
     'optionModel'=> 'Peterzaccha\DyForm\Models\DyOption',
     'formModel'  => 'Peterzaccha\DyForm\Models\DyForm',
+    'userModel'=>'App\User',
     'maxColumns' => 30,
     'factory'    => [
         ['type'=>'text', 'class'=>TextField::class],
