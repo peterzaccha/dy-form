@@ -14,7 +14,7 @@ class DyColumn extends Model
 
     public function options()
     {
-        return $this->belongsToMany(DyOption::class,
+        return $this->belongsToMany(config('dy-form.optionModel'),
             'options_columns', 'column_id', 'option_id');
     }
 }

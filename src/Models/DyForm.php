@@ -14,7 +14,7 @@ class DyForm extends Model
 
     public function columns()
     {
-        return $this->belongsToMany(DyColumn::class,
+        return $this->belongsToMany(config('dy-form.columnModel'),
             'forms_columns', 'form_id', 'column_id');
     }
 

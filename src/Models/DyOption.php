@@ -10,13 +10,13 @@ class DyOption extends Model
 
     public function columns()
     {
-        return $this->belongsToMany(self::class,
+        return $this->belongsToMany(config('dy-form.columnModel'),
             'options_columns', 'option_id', 'column_id');
     }
 
     public function nextColumns()
     {
-        return $this->belongsToMany(self::class,
+        return $this->belongsToMany(config('dy-form.columnModel'),
             'next_column', 'option_id', 'next_column');
     }
 }
