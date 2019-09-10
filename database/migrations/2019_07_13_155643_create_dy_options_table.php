@@ -18,6 +18,7 @@ class CreateDyOptionsTable extends Migration
             $table->string('value')->unique();
             $table->string('name');
             $table->string('hint')->nullable();
+            $table->string('tag')->nullable();
             $table->timestamps();
         });
     }
