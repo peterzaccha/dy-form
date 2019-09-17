@@ -24,11 +24,12 @@ class Field implements \Peterzaccha\DyForm\Interfaces\Field
             'name'    => $this->getName(),
             'type'    => $this->type,
             'label'   => $this->column->label,
-            'required'=> $this->column->required,
             'value'   => $this->value,
             'options' => $this->column->options,
+            'hint'    => $this->column->hint
         ];
 
+        $this->column->required ? $compact['required'] = true : '';
         $this->multiple ? $compact['multiple'] = true : '';
 
         return View::dyComponent($this->blade)->with($compact);
