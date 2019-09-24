@@ -26,8 +26,16 @@ class DyRequest extends FormRequest
     {
         $rules = [];
         $form = DyForm::find($this->route('form'));
+        $user = config('dy-form.userInstance')($this, $form);
+
         foreach ($form->columns as $column) {
-            $rules[$column->name] = $column->rules.$column->required ? '|required' : '';
+            if ($column->render_type == 'file' ){
+                if (!$user->getColumnValue($column)){
+                    $rules[$column->name] = $column->rules.$column->required ? '|required' : '';
+                }
+            }else{
+                $rules[$column->name] = $column->rules.$column->required ? '|required' : '';
+            }
         }
 
         return $rules;
